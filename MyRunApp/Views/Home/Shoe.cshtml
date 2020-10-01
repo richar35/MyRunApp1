@@ -1,0 +1,39 @@
+﻿@model List<Shoe>
+@{
+    ViewData["Title"] = "Shoes";
+}
+
+<h2>Shoe List</h2>
+<a asp-controller="Movie" asp-action="Add">Add New Shoe</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Use</th>
+            <th>Support</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shoe in Model)
+        {
+            <tr>
+                <td>@shoe.Brand
+                
+                <td>@shoe.Name
+                
+                <td>@shoe.Use
+                
+                <td>@shoe.Support
+                <td>
+                
+                
+                    <a asp-controller="Shoe" asp-action="Edit"
+                       asp-route-id="@shoe.ShoeId">Edit</a>
+                    <a asp-controller="Shoe" asp-action="Delete"
+                       asp-route-id="@shoe.ShoeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
